@@ -10,6 +10,7 @@ import videoRouter from "./routers/videoRouter";
 import routes from "./routes";
 var app = express();
 
+app.set('view engine', "pug");
 // 서버에서 읽을 수 있게 parse
 app.use(cookieParser());
 app.use(bodyParser.json());

@@ -15,6 +15,8 @@ var app = express();
 app.use(helmet());
 // html
 app.set('view engine', "pug");
+// directory에서 file을 보내주는 middleware
+app.use("/uploads", express.static("uploads"));
 // 서버에서 읽을 수 있게 parse
 app.use(cookieParser());
 app.use(bodyParser.json());

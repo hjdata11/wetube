@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","sources":["webpack://wetube/assets/scss/styles.scss"],"sourcesContent":["@import \"config/_variables.scss\";\r\n\r\nbody {\r\n    background-color: $sexyColor;\r\n}"],"mappings":"AAEA;AACA;;","sourceRoot":""}

@@ -18,7 +18,7 @@ import "./passport";
 
 var app = express();
 
-const CookieStore = MongoStore(session)
+const CookieStore = MongoStore(session);
 
 // 보안
 app.use(

@@ -3,12 +3,10 @@ import routes from "../routes";
 import User from "../models/User";
 
 export const getJoin = (req, res) => {
-  console.log("하이하이하이");
   res.render("join", { pageTitle: "Join" });
 };
 
 export const postJoin = async (req, res, next) => {
-  console.log("하이하이");
   const {
     body: { name, email, password, password2 },
   } = req;
@@ -69,7 +67,7 @@ export const postGithubLogIn = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const facebookLogin = passport.authenticate("facebook");
+// export const facebookLogin = passport.authenticate("facebook");
 
 // export const facebookLoginCallback = (
 //   accessToken,
@@ -107,5 +105,26 @@ export const userDetail = async (req, res) => {
   }
 };
 
-export const editProfile = (req, res) => res.render("editProfile", {pageTitle: "Edit Profile"});
+export const getEditProfile  = (req, res) => res.render("editProfile", {pageTitle: "Edit Profile"});
+
+export const postEditProfile = async (req, res) => {
+  const {
+    body: { name, email },
+    file,
+    user: { _id: id },
+  } = req;
+  console.log(id);
+  try {
+    const user = await User.findByIdAndUpdate(id, {
+      name,
+      email,
+      avatarUrl: file ? file.path : req.user.avatarUrl
+    });
+    console.log(user);
+    res.redirect(routes.me);
+  } catch (error) {
+    res.render("editProfile", { pageTitle: "Edit Profile" });
+  }
+};
+
 export const changePassword = (req, res) => res.render("changePassword", {pageTitle: "Change Password"});

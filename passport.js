@@ -5,7 +5,7 @@ import User from "./models/User";
 import {
   githubLoginCallback,
   // facebookLoginCallback,
-} from "./controller/userController";
+} from "./controllers/userController";
 import routes from "./routes";
 
 passport.use(User.createStrategy());

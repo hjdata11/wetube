@@ -1,7 +1,7 @@
 import express from "express";
 import passport from "passport";
 import routes from "../routes";
-import { home, search } from "../controller/videoController";
+import { home, search } from "../controllers/videoController";
 import {
   getJoin,
   postJoin,
@@ -13,7 +13,7 @@ import {
   getMe,
   // facebookLogin,
   // postFacebookLogin,
-} from "../controller/userController";
+} from "../controllers/userController";
 
 import { onlyPrivate, onlyPublic } from "../middlewares";
 

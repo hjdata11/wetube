@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import mongoose from "mongoose";
 import session from "express-session";
+import path from "path";
 import MongoStore from "connect-mongo";
 import { localsMiddleware } from "./middlewares";
 import userRouter from "./routers/userRouter";
@@ -29,9 +30,9 @@ app.use(
 );
 // html
 app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 // directory에서 file을 보내주는 middleware
-app.use("/uploads", express.static("uploads"));
-app.use("/static", express.static("static"));
+app.use("/static", express.static(path.join(__dirname, "static")));
 // 서버에서 읽을 수 있게 parse
 app.use(cookieParser());
 app.use(bodyParser.json());
